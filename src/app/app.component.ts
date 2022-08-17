@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<button (click)="sumTwoPurchases(John, Peter)">Click</button>
-    <div>{{ result }}</div>`,
+  template: `<button (click)="sumTwoPurchases(John, Peter)">Count amount of money Ann spent</button>
+    <div>{{ Ann.sumOfPurchasedItems }}</div>`,
   styles: [],
 })
 export class AppComponent {
@@ -27,8 +27,6 @@ export class AppComponent {
     sumOfPurchasedItems: 0,
   };
 
-  result!: number;
-
   sumOfTwoPurchases!: number;
 
   sumTwoPurchases(...buyers: any[]): number {
@@ -46,9 +44,9 @@ export class AppComponent {
 
       const amountOFStationerySets = itemAmount / values.length;
 
-      this.result = this.sumOfTwoPurchases / amountOFStationerySets;
+      this.Ann.sumOfPurchasedItems = this.sumOfTwoPurchases / amountOFStationerySets;
     });
-    return this.result;
+    return this.Ann.sumOfPurchasedItems;
   }
 }
 
